@@ -7,6 +7,8 @@ project(lcd-lib C CXX ASM)
 set(CMAKE_C_STANDARD 11)
 set(CMAKE_CXX_STANDARD 17)
 
+set(PICO_NO_FLASH 1)
+
 # Initialize the SDK
 pico_sdk_init()
 
@@ -24,6 +26,9 @@ if (TARGET tinyusb_device)
 
 	# create map/bin/hex/uf2 file etc.
 	pico_add_extra_outputs(hello_cw)
+
+	# use user linker script
+	pico_set_linker_script(hello_cw ${CMAKE_CURRENT_SOURCE_DIR}/memmap_no_flash.ld)
 
 elseif(PICO_ON_DEVICE)
 	message(WARNING "not building hello_cw because TinyUSB submodule is not initialized in the SDK")
