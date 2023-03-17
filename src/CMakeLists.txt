@@ -8,6 +8,7 @@ set(CMAKE_C_STANDARD 11)
 set(CMAKE_CXX_STANDARD 17)
 
 set(PICO_NO_FLASH 1)
+add_definitions(-O0)
 
 # Initialize the SDK
 pico_sdk_init()
@@ -15,6 +16,7 @@ pico_sdk_init()
 if (TARGET tinyusb_device)
 	add_executable(hello_cw
 			hello_usb.c
+			machikania.c
 		)
 
 	# Pull in our pico_stdlib which aggregates commonly used features
