@@ -1,0 +1,10 @@
+
+Ram area: 0x20010000 - 0x20020000
+
+<data_cpy_table> found. Copy data from RAM to RAM.
+  from:20015ff0 to:20015ff0 end:200160a8 (negligible)
+  from:20040000 to:20040000 end:20040000 (negligible)
+  from:20041000 to:20041000 end:20041000 (negligible)
+Exported functions:
+  machikania_init (at 1168)
+  add_values (at 1068)
