@@ -1,0 +1,33 @@
+useclass CLDHEX
+usevar C_CODE
+gosub INIT_C
+
+for i=1 to 10
+  print a,b,a+b,gosub(C_ADD_VALUES,a,b)
+  a=a+1
+  b=b+2
+next
+
+end
+
+label INIT_C
+  var A,V
+  REM Load the main code
+  A=$20010000
+  C_CODE=new(CLDHEX,"HELLO_CW.HEX",A,65536)
+  REM data_cpy_table
+  REM Link functions
+  V=(A+1168-DATAADDRESS(C_MACHIKANIA_INIT)-12)>>1
+  poke16 DATAADDRESS(C_MACHIKANIA_INIT)+8,$f000+(V>>11)
+  poke16 DATAADDRESS(C_MACHIKANIA_INIT)+10,$f800+(V and $7ff)
+  V=(A+1068-DATAADDRESS(C_ADD_VALUES)-12)>>1
+  poke16 DATAADDRESS(C_ADD_VALUES)+8,$f000+(V>>11)
+  poke16 DATAADDRESS(C_ADD_VALUES)+10,$f800+(V and $7ff)
+  REM Initialize C global variables
+  gosub C_MACHIKANIA_INIT
+return
+
+label C_MACHIKANIA_INIT
+  exec $68f0,$6931,$6972,$69b3,$f000,$f800,$bd00
+label C_ADD_VALUES
+  exec $68f0,$6931,$6972,$69b3,$f000,$f800,$bd00
