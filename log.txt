@@ -1,0 +1,16 @@
+<data_cpy_table> found. Copy data from flash to RAM.
+10000234:	1000b4f8 	.word	0x1000b4f8
+10000238:	200000c0 	.word	0x200000c0
+1000023c:	20001400 	.word	0x20001400
+10000240:	1000c838 	.word	0x1000c838
+10000244:	20040000 	.word	0x20040000
+10000248:	20040000 	.word	0x20040000
+1000024c:	1000c838 	.word	0x1000c838
+10000250:	20041000 	.word	0x20041000
+10000254:	20041000 	.word	0x20041000
+----------
+function name: add_values (10000304-1000031d)
+C_FUNCTIONS+0
+----------
+
+List of BL instructions

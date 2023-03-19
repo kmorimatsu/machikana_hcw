@@ -1,0 +1,22 @@
+USEVAR C_RAM
+GOSUB INIT_C
+END
+
+LABEL INIT_C
+  DIM C_RAM(0)
+  REM ram vectors
+  REM rodata vectors
+  REM ram function vectors
+  REM callback function vectors
+RETURN
+
+ALIGN4
+LABEL C_ADD_VALUES
+  EXEC $68f0,$6931,$6972,$69b3,$f000,$f802,$bd00,$46c0
+
+REM 28 bytes
+LABEL C_FUNCTIONS
+EXEC $b580,$b082,$af00,$6078,$6039,$687a,$683b,$18d3,$0018,$46bd,$b002,$bd80,$b580,$b082
+
+REM 0 bytes
+LABEL C_RODATA
